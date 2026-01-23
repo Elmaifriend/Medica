@@ -30,7 +30,7 @@ class LegacySyncController extends Controller
             $result = DB::transaction(function () use ($request) {
                 
                 // A. Crear la Clínica (Tenant)
-                $tenant = Tenant::crete(
+                $tenant = Tenant::create(
                     [
                         'name'         => $request->name,
                         'status'       => 'active'
