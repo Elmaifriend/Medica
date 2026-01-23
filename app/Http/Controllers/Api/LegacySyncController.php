@@ -30,10 +30,8 @@ class LegacySyncController extends Controller
             $result = DB::transaction(function () use ($request) {
                 
                 // A. Crear la Clínica (Tenant)
-                $tenant = Tenant::firstOrCreate(
-                    ['legacy_user_id' => $request->legacy_id],
+                $tenant = Tenant::crete(
                     [
-                        'id'           => (string) Str::uuid(),
                         'name'         => $request->name,
                         'status'       => 'active'
                     ]
